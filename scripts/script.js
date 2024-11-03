@@ -14,3 +14,16 @@ if (transactions) {
 const saveTransactions = () => {
     localStorage.setItem('transactions', JSON.stringify(transactions));
 };
+
+transactionForm.addEventListener('submit', e => {
+    
+    const note = document.getElementById('transaction-note').value;
+    const amount = +document.getElementById('transaction-amount').value;
+    const type = document.getElementById('transaction-type').value;
+
+    const transaction = { id: Date.now().toString(), note, amount: type === 'expense' ? -amount : amount, type };
+    transactions.push(transaction);
+    saveTransactions();
+    
+    transactionForm.reset();
+});
