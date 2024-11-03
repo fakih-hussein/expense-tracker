@@ -24,6 +24,17 @@ transactionForm.addEventListener('submit', e => {
     const transaction = { id: Date.now().toString(), note, amount: type === 'expense' ? -amount : amount, type };
     transactions.push(transaction);
     saveTransactions();
+    updateBudget();
     
     transactionForm.reset();
 });
+
+const updateBudget = () => {
+    let total = 0;
+
+    for (const trans of transactions) {
+        total += trans.amount;
+    }
+
+    totalBudget.textContent = total;
+};
