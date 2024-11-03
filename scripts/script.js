@@ -25,6 +25,7 @@ transactionForm.addEventListener('submit', e => {
     transactions.push(transaction);
     saveTransactions();
     updateBudget();
+    displayTransactions();
     
     transactionForm.reset();
 });
@@ -37,4 +38,20 @@ const updateBudget = () => {
     }
 
     totalBudget.textContent = total;
+};
+
+const displayTransactions = (filteredTransactions = transactions) => {
+    transactionList.innerHTML = '';
+    filteredTransactions.forEach(({ id, note, amount, type }) => {
+        const li = document.createElement('li');
+        li.classList.add('transaction-item', type);
+        li.innerHTML = `
+            ${note}: $${amount}
+            <span>
+                <button onclick="editTransaction('${id}')">Edit</button>
+                <button onclick="deleteTransaction('${id}')">Delete</button>
+            </span>
+        `;
+        transactionList.appendChild(li);
+    });
 };
