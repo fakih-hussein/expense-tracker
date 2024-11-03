@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <div class="container">
         <h1>Expense Tracker</h1>
 
-        
         <form id="transaction-form">
             <input type="text" id="transaction-note" placeholder="Note">
             <input type="number" id="transaction-amount" placeholder="Amount">
@@ -31,12 +31,10 @@
             <button id="filter-button">Filter</button>
         </div>
 
-        
         <div class="total-budget">
             <h2>Total Budget: $<span id="total-budget">0</span></h2>
         </div>
 
-        
         <ul id="transaction-list"></ul>
     </div>
 
