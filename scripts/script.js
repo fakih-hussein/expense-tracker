@@ -16,9 +16,9 @@ const saveTransactions = () => {
 };
 
 transactionForm.addEventListener('submit', e => {
-    
+
     const note = document.getElementById('transaction-note').value;
-    const amount = +document.getElementById('transaction-amount').value;
+    const amount = document.getElementById('transaction-amount').value;
     const type = document.getElementById('transaction-type').value;
 
     const transaction = { id: Date.now().toString(), note, amount: type === 'expense' ? -amount : amount, type };
@@ -26,7 +26,7 @@ transactionForm.addEventListener('submit', e => {
     saveTransactions();
     updateBudget();
     displayTransactions();
-    
+
     transactionForm.reset();
 });
 
@@ -55,3 +55,6 @@ const displayTransactions = (filteredTransactions = transactions) => {
         transactionList.appendChild(li);
     });
 };
+
+updateBudget();
+displayTransactions();
