@@ -20,6 +20,17 @@
             <button type="submit">Add Transaction</button>
         </form>
 
+        <div class="filters">
+            <input type="number" id="min-amount" placeholder="Min Amount">
+            <input type="number" id="max-amount" placeholder="Max Amount">
+            <select id="filter-type">
+                <option value="all">All</option>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <button id="filter-button">Filter</button>
+        </div>
+
         
         <div class="total-budget">
             <h2>Total Budget: $<span id="total-budget">0</span></h2>
